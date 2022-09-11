@@ -69,7 +69,7 @@ int s21_from_decimal_to_int(s21_decimal src, int *dst) {
             }
 
             // Определяем знак результата, исходя из знака числа src (типа decimal)
-            if (s21_decimal_get_sign(src) == 1 && *dst != -2147483648) {
+            if (s21_decimal_get_sign(src) == S21_NEGATIVE && *dst != -2147483648) {
                 // У INT_MIN не надо менять знак, ибо:
                 // negation of -2147483648 cannot be represented in type 'int';
                 // А при этом для INT_MIN при расчете мы получили переполнение int и правильное значение
