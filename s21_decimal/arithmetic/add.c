@@ -113,14 +113,7 @@ int s21_add_handle(s21_decimal value_1, s21_decimal value_2, s21_decimal *result
         // Анализируем степень результата на корректность
         code = S21_ARITHMETIC_BIG;
         *result = s21_decimal_get_inf();
-    } else {
-        // Если результат надо делить более, чем на 10^28, то уменьшаем его, чтобы далее делить на 10^28
-        while (shift > 28) {
-            res =
-                s21_int256_binary_division(res, s21_create_int256_from_decimal(s21_decimal_get_ten()), NULL);
-            --shift;
-        }
-
+    } 
         s21_int256 remainder = s21_create_int256_from_decimal(s21_decimal_get_zero());
         s21_int256 powerten = s21_create_int256_from_decimal(s21_int128_get_ten_pow(shift));
 
