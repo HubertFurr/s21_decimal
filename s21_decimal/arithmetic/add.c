@@ -113,7 +113,7 @@ int s21_add_handle(s21_decimal value_1, s21_decimal value_2, s21_decimal *result
         // Анализируем степень результата на корректность
         code = S21_ARITHMETIC_BIG;
         *result = s21_decimal_get_inf();
-    } 
+    } else {
         s21_int256 remainder = s21_create_int256_from_decimal(s21_decimal_get_zero());
         s21_int256 powerten = s21_create_int256_from_decimal(s21_int128_get_ten_pow(shift));
 
