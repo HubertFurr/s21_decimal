@@ -12,6 +12,8 @@ endif
 # Настраиваем переменные в зависимости от ОС
 ifeq ($(detected_OS), Linux)
 	detected_Linux := $(shell cat /etc/issue | sed -n '1p' | awk '{print $$1}')
+	# Значение по умолчанию для любых версий Linux
+	LIBS_ADDITIONAL = -lm -pthread -lsubunit -lrt
 	ifeq ($(detected_Linux), Arch)
 	LIBS_ADDITIONAL = -lm
 	CMD_OPEN = xdg-open
